@@ -20,13 +20,11 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      animals: [],
-     
+      animals: []
     };
   }
 
   componentDidMount() {
-   
     fetch("https://jsonplaceholder.typicode.com/users")
       .then(response => response.json())
       .then(users => {
@@ -34,10 +32,9 @@ class App extends Component {
       });
   }
 
-
   render() {
-    const { animals} = this.state;
-    const {searchField,onSearchChange}=this.props;
+    const { animals } = this.state;
+    const { searchField, onSearchChange } = this.props;
     const filteredanimals = animals.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
